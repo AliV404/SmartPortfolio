@@ -28,12 +28,17 @@ public class PortfolioRepository:IPortfolioRepository
         // 2. Apply filters dynamically
         if (!string.IsNullOrWhiteSpace(request.AdvisorName))
         {
-            query = query.Where(s => s.Advisor == request.AdvisorName);
-        }
+            query = query.Where(s =>
+            s.Advisor != null &&
+            s.Advisor.Contains(request.AdvisorName)
+        );}
 
         if (!string.IsNullOrWhiteSpace(request.CourseName))
         {
-            query = query.Where(s => s.CourseName == request.CourseName);
+            query = query.Where(s =>
+            s.CourseName != null &&
+            s.CourseName.Contains(request.CourseName)
+        );
         }
 
         if (!string.IsNullOrWhiteSpace(request.AcademicYear))
