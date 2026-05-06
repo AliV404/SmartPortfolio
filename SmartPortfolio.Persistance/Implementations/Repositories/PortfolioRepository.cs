@@ -21,11 +21,11 @@ public class PortfolioRepository:IPortfolioRepository
             .Include(s => s.VisualAssets)
             .AsQueryable();
         
-        if (!string.IsNullOrWhiteSpace(request.StudentId))
-        {
-            query = query.Where(s => s.StudentId == request.StudentId);
-        }
-        // 2. Apply filters dynamically
+     if (!string.IsNullOrWhiteSpace(request.StudentId))
+{
+    query = query.Where(s => s.StudentId == int.Parse(request.StudentId));
+}
+        //2. Apply filters dynamically
         if (!string.IsNullOrWhiteSpace(request.AdvisorName))
         {
             query = query.Where(s =>

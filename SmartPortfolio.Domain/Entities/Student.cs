@@ -2,7 +2,7 @@ namespace SmartPortfolio.Domain.Entities;
 
 public class Student
 {
-    public string StudentId { get; set; } = null!;
+    public int StudentId { get; set; }
     public string? AcademicYear { get; set; }
     public string? CourseName { get; set; }
     public string? Advisor { get; set; }
